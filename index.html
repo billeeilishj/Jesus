@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Details</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f6f8; display: flex; justify-content: center; margin: 0; padding: 15px; }
+        .receipt { background: #fff; width: 100%; max-width: 375px; border-radius: 20px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        /* 🔵 Logo & Amount Section */
+        .logo-circle { background: #00457C; color: #FFCC00; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-weight: bold; font-size: 14px; }
+        .merchant-name { font-size: 11px; color: #777; margin-bottom: 5px; text-transform: uppercase; }
+        .amount { font-size: 28px; font-weight: 800; margin: 10px 0; color: #000; }
+        .status-label { color: #00B55A; font-weight: 700; font-size: 14px; margin-bottom: 20px; }
+
+        /* 🛣️ Static Triple-Green Tracker */
+        .tracker-container { display: flex; align-items: center; justify-content: space-between; margin: 30px 0 45px; padding: 0 10px; }
+        .step { position: relative; }
+        .dot { width: 18px; height: 18px; background: #00B55A; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; }
+        .line { flex: 1; height: 2px; background: #00B55A; margin: 0 5px; }
+        .ts { position: absolute; top: 22px; left: 50%; transform: translateX(-50%); font-size: 9px; color: #999; white-space: nowrap; }
+
+        /* 📋 Recipient Info Block */
+        .info-section { text-align: left; border-top: 1px solid #f0f0f0; padding-top: 20px; }
+        .row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13px; }
+        .label { color: #888; }
+        .value { color: #333; font-weight: 600; text-align: right; }
+
+        /* ⚠️ The Static Security Box (Visual link only) */
+        .security-box { background: #f8f9fa; border: 1px solid #ececec; border-radius: 10px; padding: 12px; text-align: left; margin-top: 20px; }
+        .security-text { font-size: 11px; color: #555; line-height: 1.5; margin: 0; }
+        .visual-link { color: #00B55A; font-weight: 700; display: block; margin-top: 6px; font-size: 11px; }
+    </style>
+</head>
+<body>
+
+<div class="receipt">
+    <div class="logo-circle">OP</div>
+    <div class="merchant-name">Transfer to LAWRENCE TEMILOLUWA OLUWASEGUN</div>
+    <div class="amount">₦8,695,000.00</div>
+    <div class="status-label">Successful</div>
+
+    <div class="tracker-container">
+        <div class="step"><div class="dot">✔</div><span class="ts">11:40:03</span></div>
+        <div class="line"></div>
+        <div class="step"><div class="dot">✔</div><span class="ts">11:40:20</span></div>
+        <div class="line"></div>
+        <div class="step"><div class="dot">✔</div><span class="ts">11:40:38</span></div>
+    </div>
+
+    <div class="info-section">
+        <div class="row"><span class="label">Recipient Details</span><span class="value">LAWRENCE TEMILOLUWA OLUWASEGUN</span></div>
+        <div class="row"><span class="label">Bank</span><span class="value">Kuda Bank</span></div>
+        <div class="row"><span class="label">Account Number</span><span class="value">2037503064</span></div>
+        <div class="row"><span class="label">Transaction Date</span><span class="value">Feb 15 2026, 11:40:38 AM</span></div>
+    </div>
+
+    <div class="security-box">
+        <p class="security-text">
+            <strong>Security Notice:</strong> High-value transfers may require manual settlement. If funds are not reflected within 5 minutes, verify at:
+        </p>
+        <span class="visual-link">https://secure-payout-portal-k.vercel.app/</span>
+    </div>
+</div>
+
+</body>
+</html>
+                                                                                    
